@@ -247,4 +247,76 @@ body {
 /* Remove hover effect */
 .profile-img:hover {
     opacity: 1;
+}
+
+/* Add these media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust container for mobile */
+    .container {
+        flex-direction: column;
+        gap: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Adjust profile images for mobile */
+    .profile-images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .profile-img {
+        position: static;
+        height: 50vh;
+        width: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .left-profile {
+        align-self: flex-start;
+    }
+
+    .right-profile {
+        align-self: flex-end;
+    }
+
+    /* Adjust grid overlay for mobile */
+    .grid-overlay {
+        transform: skew(-20deg) rotate(-10deg);
+        gap: 15px;
+    }
+
+    /* Adjust box sizing for mobile */
+    .box {
+        transform: scale(1);
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+
+    .box:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* Add specific adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .container {
+        gap: 30px;
+    }
+
+    .profile-img {
+        height: 40vh;
+    }
+
+    .box {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    .grid-overlay {
+        gap: 10px;
+    }
 } 
