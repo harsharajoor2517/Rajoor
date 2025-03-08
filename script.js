@@ -13,24 +13,35 @@ function handleMobileLayout() {
     const rightProfile = document.querySelector('.right-profile');
 
     if (isMobile) {
-        // Adjust profile image positions for mobile
-        profileImages.style.display = 'flex';
-        profileImages.style.justifyContent = 'space-between';
-        
-        // Set specific heights for mobile view
-        leftProfile.style.height = '40vh';
-        rightProfile.style.height = '40vh';
-        
-        // Adjust positions
-        leftProfile.style.transform = 'translateY(20%)';
-        rightProfile.style.transform = 'translateY(-20%)';
-    } else {
-        // Reset styles for desktop
-        profileImages.style.display = '';
+        // Reset flex styles
+        profileImages.style.display = 'block';
         profileImages.style.justifyContent = '';
+        
+        // Position images
+        leftProfile.style.position = 'fixed';
+        leftProfile.style.top = '0';
+        leftProfile.style.left = '0';
+        leftProfile.style.height = '40vh';
+        leftProfile.style.transform = 'none';
+        
+        rightProfile.style.position = 'fixed';
+        rightProfile.style.bottom = '0';
+        rightProfile.style.right = '0';
+        rightProfile.style.height = '40vh';
+        rightProfile.style.transform = 'none';
+    } else {
+        // Reset to desktop styles
+        profileImages.style.display = '';
+        leftProfile.style.position = '';
+        leftProfile.style.top = '';
+        leftProfile.style.left = '';
         leftProfile.style.height = '';
-        rightProfile.style.height = '';
         leftProfile.style.transform = '';
+        
+        rightProfile.style.position = '';
+        rightProfile.style.bottom = '';
+        rightProfile.style.right = '';
+        rightProfile.style.height = '';
         rightProfile.style.transform = '';
     }
 }
@@ -41,6 +52,8 @@ window.addEventListener('resize', handleMobileLayout);
 
 // Prevent zoom on double tap for mobile devices
 document.addEventListener('touchend', function(event) {
-    event.preventDefault();
-    event.target.click();
+    if (event.target.classList.contains('box')) {
+        event.preventDefault();
+        event.target.click();
+    }
 }, false); 

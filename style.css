@@ -249,55 +249,62 @@ body {
     opacity: 1;
 }
 
-/* Add these media queries for mobile responsiveness */
+/* Update mobile media queries */
 @media screen and (max-width: 768px) {
-    /* Adjust container for mobile */
     .container {
         flex-direction: column;
-        gap: 50px;
-        top: 50%;
-        transform: translateY(-50%);
+        gap: 50vh;  /* Increased gap to separate the names */
+        height: 100vh;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
     }
 
-    /* Adjust profile images for mobile */
+    /* Position the boxes next to their respective images */
+    .box:first-child {
+        align-self: flex-start;
+        margin-top: 15vh;  /* Align with the first image */
+        margin-left: 40vw;  /* Push right from the image */
+    }
+
+    .box:last-child {
+        align-self: flex-end;
+        margin-bottom: 15vh;  /* Align with the second image */
+        margin-right: 40vw;  /* Push left from the image */
+    }
+
     .profile-images {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: block;  /* Change from flex to block */
+        position: fixed;
         height: 100vh;
     }
 
     .profile-img {
-        position: static;
-        height: 50vh;
-        width: 100%;
-        max-width: 100%;
-        object-fit: contain;
+        position: fixed;
+        height: 40vh;
+        width: auto;
+        max-width: 35vw;
     }
 
     .left-profile {
-        align-self: flex-start;
+        top: 0;
+        left: 0;
     }
 
     .right-profile {
-        align-self: flex-end;
-    }
-
-    /* Adjust grid overlay for mobile */
-    .grid-overlay {
-        transform: skew(-20deg) rotate(-10deg);
-        gap: 15px;
+        bottom: 0;
+        right: 0;
     }
 
     /* Adjust box sizing for mobile */
     .box {
-        transform: scale(1);
-        padding: 15px 30px;
-        font-size: 16px;
+        transform: scale(0.8);  /* Slightly smaller on mobile */
+        padding: 12px 25px;
+        font-size: 14px;
     }
 
     .box:hover {
-        transform: scale(1.1);
+        transform: scale(0.9);
     }
 }
 
